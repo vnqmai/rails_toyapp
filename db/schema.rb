@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2019_05_22_104755) do
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "password", default: "123456"
+    t.string "password"
   end
 
 end
