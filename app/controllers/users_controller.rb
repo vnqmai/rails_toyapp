@@ -4,12 +4,17 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
+    # debugger
     @users = User.all
   end
 
   # GET /users/1
   # GET /users/1.json
-  def show
+  def show    
+    # @microposts = Micropost.all
+    # @micro = []
+    # @microposts.each{|micropost| if(micropost.users_id==params[:id]) @micro.push(micropost) end}
+    @microposts = Micropost.where("user_id=#{params[:id]}")
   end
 
   # GET /users/new
