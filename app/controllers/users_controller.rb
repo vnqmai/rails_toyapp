@@ -10,11 +10,8 @@ class UsersController < ApplicationController
 
   # GET /users/1
   # GET /users/1.json
-  def show    
-    # @microposts = Micropost.all
-    # @micro = []
-    # @microposts.each{|micropost| if(micropost.users_id==params[:id]) @micro.push(micropost) end}
-    @microposts = Micropost.where("user_id=#{params[:id]}")
+  def show        
+    @microposts = @user.microposts
   end
 
   # GET /users/new
