@@ -4,8 +4,12 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    # debugger
-    @users = User.all
+    # debugger    
+    if(params[:email].nil?)
+      @users = User.all      
+    else      
+      @users = User.find_by_email(params[:email])      
+    end
   end
 
   # GET /users/1
