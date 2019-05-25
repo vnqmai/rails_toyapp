@@ -1,6 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Users</h1>
+<b>Search by email </b>
+<form action="" method="GET" role="form">
+  <div class="form-group">
+    <label for="">Email</label>
+    <input type="text" class="form-control" name="email">
+  </div>
+  <button type="submit" class="btn btn-primary">Search</button>
+</form>
 <table class="table table-hover">
   <thead>
     <tr>
@@ -12,7 +20,7 @@
   </thead>
 
   <tbody>
-    <% if(@users.nil?) %>
+    <% if(@users.empty?) %>
       <tr><td colspan="6">Found 0 result.</td></tr>
     <% end %>
     <% @users.each do |user| %>
