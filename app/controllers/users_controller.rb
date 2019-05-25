@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     if(params[:email].nil?)
       @users = User.all      
     else      
-      @users = User.find_by_email(params[:email])      
+      @users = User.where(email: params[:email])      
     end
   end
 

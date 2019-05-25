@@ -1,7 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Users</h1>
-
 <table class="table table-hover">
   <thead>
     <tr>
@@ -13,8 +12,10 @@
   </thead>
 
   <tbody>
-    <% if(params[:email].nil?)%>
-      <% @users.each do |user| %>
+    <% if(@users.nil?) %>
+      <tr><td colspan="6">Found 0 result.</td></tr>
+    <% end %>
+    <% @users.each do |user| %>
       <tr>
         <td><%= user.name %></td>
         <td><%= user.email %></td>
@@ -22,21 +23,7 @@
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-    <% else
-        if(@users.nil?) %>
-          <tr><td colspan="6">Found 0 result.</td></tr>
-        <% else %>
-          <tr>
-            <td><%= @users.name %></td>
-            <td><%= @users.email %></td>
-            <td><%= @users.password %></td>
-            <td><%= link_to 'Show', @users %></td>
-            <td><%= link_to 'Edit', edit_user_path(@users) %></td>
-            <td><%= link_to 'Destroy', @users, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </tr>
-        <% end %>
+      </tr>    
     <% end %>
   </tbody>
 </table>
