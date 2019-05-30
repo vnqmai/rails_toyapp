@@ -4,4 +4,5 @@ class User < ApplicationRecord
 	has_many :microposts
 	validates :name, presence: true
 	validates :email, presence: true, format: { with: VALID_EMAIL_REGEX } 	
+	validates :password, presence: true, confirmation: true
 end
