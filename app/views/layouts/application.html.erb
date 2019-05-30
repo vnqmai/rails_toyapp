@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
   <head>
     <title>Toyapp</title>
@@ -17,11 +17,14 @@
             <li><%= link_to "Home", root_path %></li>
             <li><%= link_to 'List users', users_path %></li>
             <li><%= link_to 'List microposts', microposts_path %></li>
+            
           </ul>
         </nav>
       </div>
     </header>
     <div class="container">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
         <%= yield %>
     </div>    
   </body>
