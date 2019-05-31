@@ -7,9 +7,9 @@ class UsersController < ApplicationController
   def index
     # debugger    
     if(params[:email].nil?)
-      @users = User.all      
+      @users = User.paginate(page: params[:page], per_page: 3)      
     else      
-      @users = User.where(email: params[:email])      
+      @users = User.where(email: params[:email]).paginate(page: params[:page], per_page: 3)      
     end
   end
 
