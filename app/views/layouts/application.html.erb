@@ -33,9 +33,12 @@
         </nav>
       </div>
     </header>
+    <br><br>    
     <div class="container">
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
+        <% if(!alert.nil?) %>
+          <p class="notice"><%= notice %></p>
+          <p class="alert alert-warning"><%= alert %></p>
+        <% end %>
         <%= yield %>
     </div>    
   </body>
