@@ -6,11 +6,11 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     # debugger    
-    if(params[:email].nil?)
-      @users = User.paginate(page: params[:page], per_page: 3)      
-    else      
-      @users = User.where(email: params[:email]).paginate(page: params[:page], per_page: 3)      
-    end
+    if(params[:email].present?)
+      @users = User.where("email LIKE ?", "%#{params[:email]}%").paginate(page: params[:page], per_page: 3)
+    else
+      @users = User.paginate(page: params[:page], per_page: 3)
+    end    
   end
 
   # GET /users/1
